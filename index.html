@@ -207,16 +207,9 @@
   /* ===== Success ===== */
   #success{background:var(--black-2);}
   .stories-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
-  .story-card{border-radius:16px;overflow:hidden;border:1px solid var(--glass-border);background:var(--glass);display:flex;flex-direction:column;}
-  .ba-container{position:relative;width:100%;aspect-ratio:3/4;overflow:hidden;border-radius:12px;background:linear-gradient(135deg,#1c1812,#0c0a08);display:flex;align-items:center;justify-content:center;}
-  .ba-container .before{position:absolute;inset:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-weight:700;z-index:1;}
-  .ba-container .after{position:absolute;inset:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;overflow:hidden;}
-  .ba-slider{position:absolute;top:0;left:50%;width:2px;height:100%;background:var(--gold);cursor:col-resize;z-index:10;transform:translateX(-50%);}
-  .ba-slider::before{content:'';position:absolute;left:-12px;top:50%;width:26px;height:26px;background:var(--gold);border-radius:50%;transform:translateY(-50%);box-shadow:0 4px 12px rgba(201,162,74,.4);}
-  .ba-label{position:absolute;font-size:11px;background:rgba(0,0,0,.7);padding:4px 8px;border-radius:8px;color:var(--gold-light);z-index:5;font-weight:600;}
-  .ba-label.before-label{top:10px;left:10px;}
-  .ba-label.after-label{top:10px;right:10px;}
-  .story-body{padding:22px;flex:1;display:flex;flex-direction:column;justify-content:flex-end;}
+  .story-card{border-radius:16px;overflow:hidden;border:1px solid var(--glass-border);background:var(--glass);}
+  /* TODO: إضافة ba-container styles للـ slider التفاعلي عند الحاجة */
+  .story-body{padding:22px;}
   .story-body{padding:22px;}
   .story-body h4{font-size:16px;margin-bottom:6px;}
   .story-body p{font-size:13.5px;color:var(--grey);}
@@ -392,38 +385,27 @@
 </div></section>
 
 <section id="success"><div class="container">
+  <!-- قسم قصص النجاح - يمكن إضافة صور قبل وبعد أو slider تفاعلي لاحقاً -->
   <div class="section-head reveal"><span class="eyebrow">قصص النجاح</span><h2>تحولات <span class="gold-grad">حقيقية وملموسة</span></h2><p>نتائج فعلية لمتدربين التزموا بالخطة وحققوا أهدافهم.</p></div>
+  <!-- TODO: قصة النجاح #1 - أحمد
+    - يمكن إضافة صور قبل/بعد هنا
+    - أو استخدام slider تفاعلي للمقارنة
+  -->
   <div class="stories-grid">
     <div class="story-card reveal">
-      <div class="ba-container" data-slider>
-        <div class="ba-label before-label">قبل</div>
-        <div class="ba-label after-label">بعد</div>
-        <div class="before">👨 قبل: +95 كجم</div>
-        <div class="after" style="width:50%;">👨 بعد: -14 كجم</div>
-        <div class="ba-slider" draggable="true"></div>
-      </div>
+      <div style="height:300px;background:linear-gradient(135deg,#1c1812,#0c0a08);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:14px;">📸 قبل/بعد أحمد</div>
       <div class="story-body"><h4>أحمد، 29 سنة</h4><p>خسارة 14 كجم خلال 4 أشهر مع تحسن واضح في اللياقة العامة.</p><div class="stars">★★★★★</div></div>
     </div>
 
+    <!-- TODO: قصة النجاح #2 - سارة -->
     <div class="story-card reveal">
-      <div class="ba-container" data-slider>
-        <div class="ba-label before-label">قبل</div>
-        <div class="ba-label after-label">بعد</div>
-        <div class="before">👩 قبل: بناء عام</div>
-        <div class="after" style="width:50%;">👩 بعد: +40% قوة</div>
-        <div class="ba-slider" draggable="true"></div>
-      </div>
+      <div style="height:300px;background:linear-gradient(135deg,#1c1812,#0c0a08);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:14px;">📸 قبل/بعد سارة</div>
       <div class="story-body"><h4>سارة، 24 سنة</h4><p>بناء عضلي ملحوظ وزيادة قوة بنسبة 40% خلال 6 أشهر.</p><div class="stars">★★★★★</div></div>
     </div>
 
+    <!-- TODO: قصة النجاح #3 - محمد -->
     <div class="story-card reveal">
-      <div class="ba-container" data-slider>
-        <div class="ba-label before-label">قبل</div>
-        <div class="ba-label after-label">بعد</div>
-        <div class="before">👨‍💼 قبل: -5 كجم</div>
-        <div class="after" style="width:50%;">👨‍💼 بعد: -20 كجم</div>
-        <div class="ba-slider" draggable="true"></div>
-      </div>
+      <div style="height:300px;background:linear-gradient(135deg,#1c1812,#0c0a08);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:14px;">📸 قبل/بعد محمد</div>
       <div class="story-body"><h4>محمد، 35 سنة</h4><p>تحول كامل في نمط الحياة وخسارة 20 كجم بثبات وصحة.</p><div class="stars">★★★★★</div></div>
     </div>
   </div>
@@ -498,7 +480,9 @@
   const header=document.getElementById('header');
   window.addEventListener('scroll',()=>{header.classList.toggle('scrolled', window.scrollY>60);});
 
-  document.querySelectorAll('[data-slider]').forEach(container=>{const slider=container.querySelector('.ba-slider');const after=container.querySelector('.after');const rect=container.getBoundingClientRect();let isDown=false;const move=(e)=>{if(!isDown)return;const x=(e.clientX||e.touches[0].clientX)-container.getBoundingClientRect().left;const w=container.offsetWidth;const pct=Math.max(0,Math.min(100,100*x/w));slider.style.left=pct+'%';after.style.width=pct+'%';};container.addEventListener('mousedown',()=>isDown=true);container.addEventListener('touchstart',()=>isDown=true);document.addEventListener('mousemove',move);document.addEventListener('touchmove',move);document.addEventListener('mouseup',()=>isDown=false);document.addEventListener('touchend',()=>isDown=false);});
+  /* TODO: إضافة slider تفاعلي للمقارنة بين الصور قبل/بعد في قسم قصص النجاح
+  document.querySelectorAll('[data-slider]').forEach(container=>{...});
+  */
 
   const burger=document.getElementById('burger'), navLinks=document.getElementById('navLinks');
   burger.addEventListener('click',()=>{navLinks.classList.toggle('open');});
