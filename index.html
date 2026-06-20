@@ -435,10 +435,6 @@
   const header=document.getElementById('header');
   window.addEventListener('scroll',()=>{header.classList.toggle('scrolled', window.scrollY>60);});
 
-  /* TODO: إضافة slider تفاعلي للمقارنة بين الصور قبل/بعد في قسم قصص النجاح
-  document.querySelectorAll('[data-slider]').forEach(container=>{...});
-  */
-
   const burger=document.getElementById('burger'), navLinks=document.getElementById('navLinks');
   burger.addEventListener('click',()=>{navLinks.classList.toggle('open');});
   navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
