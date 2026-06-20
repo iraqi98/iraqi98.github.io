@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>شهادات مدرب عبدالله عماد</title>
+  <style>
+    :root{
+      --black:#08070a;
+      --gold:#c9a24a;
+      --gold-light:#e8cd87;
+      --grey:#9a948c;
+      --glass: rgba(247,245,240,0.04);
+      --glass-border: rgba(201,162,74,0.18);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background:var(--black);
+      color:#f7f5f0;
+      font-family:Arial, Helvetica, sans-serif;
+      line-height:1.7;
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 16px;}
+    h1{font-size:26px;margin-bottom:10px;color:var(--gold);}
+    p{color:var(--grey);margin-bottom:18px;}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:520px){.grid{grid-template-columns:1fr}}
+
+    .thumb{
+      border:1px solid var(--glass-border);
+      background:var(--glass);
+      border-radius:14px;
+      overflow:hidden;
+      aspect-ratio:1/1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition:.25s;
+    }
+    .thumb:hover{transform:translateY(-4px);border-color:var(--gold)}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Lightbox */
+    .lb{
+      position:fixed;inset:0;
+      background:rgba(0,0,0,.72);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:9999;
+    }
+    .lb.open{display:flex}
+    .lb-card{
+      width:min(900px, 100%);
+      background:#0d0b0f;
+      border:1px solid var(--glass-border);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 30px 90px rgba(0,0,0,.6);
+    }
+    .lb-top{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:12px 14px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .lb-top .title{color:var(--gold);font-weight:800}
+    .lb-top .actions{display:flex;gap:10px;}
+    .btn{
+      background:transparent;
+      border:1px solid var(--glass-border);
+      color:var(--white);
+      border-radius:10px;
+      padding:8px 10px;
+      cursor:pointer;
+      font-weight:700;
+      transition:.2s;
+    }
+    .btn:hover{border-color:var(--gold);color:var(--gold)}
+    .lb-body{padding:12px;}
+    .lb-body img{width:100%;height:auto;max-height:70vh;object-fit:contain;border-radius:12px;display:block;}
+    .hint{color:var(--grey);font-size:13px;margin-top:10px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>شهادات الكابتن عبدالله عماد</h1>
+    <p>صور الشهادات/الاعتمادات (8 صور) يمكنك تصفحها من هنا.</p>
+
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <div class="lb" id="lightbox" aria-hidden="true">
+    <div class="lb-card">
+      <div class="lb-top">
+        <div class="title" id="lbTitle">—</div>
+        <div class="actions">
+          <button class="btn" id="prevBtn" title="السابق">←</button>
+          <button class="btn" id="nextBtn" title="التالي">→</button>
+          <button class="btn" id="closeBtn" title="إغلاق">✕</button>
+        </div>
+      </div>
+      <div class="lb-body">
+        <img id="lbImg" alt="صورة شهادة" />
+        <div class="hint">استخدم الأسهم للتصفح أو اضغط ESC للإغلاق</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+const images = [
+      {src:'Achievements/WhatsApp Image 2026-06-11 at 5.39.20 PM (1).jpeg', title:'Certificate of Completion – The Diet Masters Program — شهادة إتمام برنامج دايت ماسترز'},
+      {src:'Achievements/WhatsApp Image 2026-06-11 at 5.39.20 PM.jpeg', title:'Participation Certificate – Iraqi National Federation of Bodybuilding & Fitness (Category C) — شهادة مشاركة من الاتحاد العراقي الوطني لبناء الأجسام واللياقة البدنية (فئة C)'},
+      {src:'Achievements/WhatsApp Image 2026-06-11 at 5.39.21 PM (1).jpeg', title:'Certificate of Completion – InBody Analysis Workshop (IFPA Iraq Academy) — شهادة إتمام ورشة تحليل الجسم (إنبودي) من أكاديمية IFPA العراق'},
+      {src:'Achievements/WhatsApp Image 2026-06-11 at 5.39.21 PM.jpeg', title:'Certificate of Completion – Cross Training Workshop (IFPA Iraq Academy) — شهادة إتمام ورشة التدريب المتقاطع من أكاديمية IFPA العراق'},
+      {src:'Achievements/WhatsApp Image 2026-06-11 at 5.39.22 PM (1).jpeg', title:'IFPA Certification – Personal Fitness Trainer (2024–2026) — شهادة مدرب شخصي معتمد من IFPA (تنتهي 2026)'},
+      {src:'Achievements/WhatsApp Image 2026-06-11 at 5.39.22 PM (2).jpeg', title:'IFPA Certification – Personal Fitness Trainer (2024–2028) — شهادة مدرب شخصي معتمد من IFPA (تنتهي 2028)'},
+      {src:'Achievements/WhatsApp Image 2026-06-11 at 5.39.22 PM.jpeg', title:'Certificate of Completion – Sports Supplements Workshop (IFPA Iraq Academy) — شهادة إتمام ورشة المكملات الرياضية من أكاديمية IFPA العراق'},
+      {src:'Achievements/WhatsApp Image 2026-06-11 at 5.39.23 PM.jpeg', title:'International Certificate of Experience – Bodybuilding & Fitness Coach (Academy ALOFUK Malaysia) — شهادة خبرة دولية كمدرب كمال أجسام ولياقة من أكاديمية ALOFUK ماليزيا'},
+    ];
+
+    const grid = document.getElementById('grid');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbTitle = document.getElementById('lbTitle');
+    const closeBtn = document.getElementById('closeBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let idx = 0;
+
+    function render(){
+      grid.innerHTML = images.map((it,i)=>{
+        return `
+          <div class="thumb" role="button" tabindex="0" data-i="${i}" aria-label="فتح صورة ${i+1}">
+            <img src="${it.src}" alt="${it.title}" loading="lazy" />
+          </div>
+        `;
+      }).join('');
+
+      grid.querySelectorAll('.thumb').forEach(el=>{
+        const i = Number(el.dataset.i);
+        const open = ()=>openAt(i);
+        el.addEventListener('click', open);
+        el.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') open(); });
+      });
+    }
+
+    function openAt(i){
+      idx = (i + images.length) % images.length;
+      const it = images[idx];
+      lbImg.src = it.src;
+      lbTitle.textContent = it.title;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden','false');
+    }
+
+    function close(){
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden','true');
+    }
+
+    closeBtn.addEventListener('click', close);
+    prevBtn.addEventListener('click', ()=>openAt(idx-1));
+    nextBtn.addEventListener('click', ()=>openAt(idx+1));
+
+    document.addEventListener('keydown', (e)=>{
+      if(!lightbox.classList.contains('open')) return;
+      if(e.key==='Escape') close();
+      if(e.key==='ArrowLeft') openAt(idx-1);
+      if(e.key==='ArrowRight') openAt(idx+1);
+    });
+
+    lightbox.addEventListener('click', (e)=>{
+      if(e.target === lightbox) close();
+    });
+
+    render();
+  </script>
+</body>
+</html>
+
