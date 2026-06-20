@@ -204,23 +204,7 @@
   .bmi-bar{width:100%;max-width:340px;height:8px;border-radius:8px;background:#222;margin-top:24px;overflow:hidden;position:relative;}
   .bmi-bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#5fb0ff,#3ddc84,var(--gold),#ff6b6b);width:0%;transition:width 1s ease;}
 
-  /* ===== Success ===== */
-  #success{background:var(--black-2);}
-  .stories-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
-  .story-card{border-radius:16px;overflow:hidden;border:1px solid var(--glass-border);background:var(--glass);}
-  /* TODO: إضافة ba-container styles للـ slider التفاعلي عند الحاجة */
-  .story-body{padding:22px;}
-  .story-body{padding:22px;}
-  .story-body h4{font-size:16px;margin-bottom:6px;}
-  .story-body p{font-size:13.5px;color:var(--grey);}
-  .stars{color:var(--gold);margin-top:10px;font-size:14px;letter-spacing:2px;}
 
-  .testimonial-track{margin-top:60px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .t-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:14px;padding:28px;position:relative;}
-  .t-card::before{content:"“";position:absolute;top:10px;right:18px;font-size:50px;color:var(--gold);opacity:.3;font-family:Georgia,serif;}
-  .t-card p{font-size:14.5px;color:#cfcabf;margin-bottom:18px;}
-  .t-name{font-weight:700;font-size:14px;}
-  .t-role{font-size:12px;color:var(--grey);}
 
   /* ===== Contact ===== */
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
@@ -283,7 +267,7 @@
         <li><a href="#programs">البرامج التدريبية</a></li>
         <li><a href="#store">المتجر</a></li>
         <li><a href="#bmi">حاسبة BMI</a></li>
-        <li><a href="#success">قصص النجاح</a></li>
+
         <li><a href="#contact">تواصل معنا</a></li>
       </ul>
       <div style="display:flex;align-items:center;gap:14px;">
@@ -327,16 +311,16 @@
     <div class="stat-row">
       <div class="stat-card"><strong>+500</strong><span>متدرب ناجح</span></div>
       <div class="stat-card"><strong>+9</strong><span>سنوات خبرة</span></div>
-      <div class="stat-card"><strong>8</strong><span>شهادة احترافية</span></div>
+<div class="stat-card"><strong>8</strong><span>شهادة احترافية</span></div>
     </div>
-    <span class="eyebrow" style="margin-bottom:10px">الشهادات والاعتمادات</span>
+<span class="eyebrow" style="margin-bottom:10px">الشهادات والاعتمادات</span>
     <div style="margin-bottom:14px;"></div>
     <a class="btn btn-outline" style="display:inline-flex;align-items:center;gap:8px;margin:0 0 18px 0;" href="shoop/achievements8.html" target="_blank" rel="noopener">عرض صور الشهادات (8) ←</a>
     <div class="cert-list">
       <div class="cert-chip">ISSA مدرب شخصي معتمد</div>
       <div class="cert-chip">شهادة تغذية رياضية</div>
       <div class="cert-chip">ACE Personal Trainer</div>
-      <div class="cert-chip">إسعافات أولية CPR/AED</div>
+      <div class="cert-chip">CPR/AED</div>
       <div class="cert-chip">برامج بناء القوة المتقدمة</div>
     </div>
   </div>
@@ -353,7 +337,7 @@
 </div></section>
 
 <section id="store"><div class="container">
-  <div class="section-head reveal"><span class="eyebrow">المتجر</span><h2>مكملات غذائية <span class="gold-grad">ومعدات رياضية</span></h2><p>عرض المنتجات بدون دفع إلكتروني — للاستفسار والطلب تواصل معنا مباشرة عبر واتساب.</p></div>
+<div class="section-head reveal"><span class="eyebrow">المتجر</span><h2>مكملات غذائية <span class="gold-grad">ومعدات رياضية</span></h2><p>استفسر واطلب عبر واتساب مباشرة.</p></div>
   <div class="filter-row reveal" id="filterRow">
     <button class="filter-btn active" data-f="all">الكل</button>
     <button class="filter-btn" data-f="protein">بروتين</button>
@@ -386,37 +370,7 @@
   </div>
 </div></section>
 
-<section id="success"><div class="container">
-  <!-- قسم قصص النجاح - يمكن إضافة صور قبل وبعد أو slider تفاعلي لاحقاً -->
-  <div class="section-head reveal"><span class="eyebrow">قصص النجاح</span><h2>تحولات <span class="gold-grad">حقيقية وملموسة</span></h2><p>نتائج فعلية لمتدربين التزموا بالخطة وحققوا أهدافهم.</p></div>
-  <!-- TODO: قصة النجاح #1 - أحمد
-    - يمكن إضافة صور قبل/بعد هنا
-    - أو استخدام slider تفاعلي للمقارنة
-  -->
-  <div class="stories-grid">
-    <div class="story-card reveal">
-      <div style="height:300px;background:linear-gradient(135deg,#1c1812,#0c0a08);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:14px;">📸 قبل/بعد أحمد</div>
-      <div class="story-body"><h4>أحمد، 29 سنة</h4><p>خسارة 14 كجم خلال 4 أشهر مع تحسن واضح في اللياقة العامة.</p><div class="stars">★★★★★</div></div>
-    </div>
 
-    <!-- TODO: قصة النجاح #2 - سارة -->
-    <div class="story-card reveal">
-      <div style="height:300px;background:linear-gradient(135deg,#1c1812,#0c0a08);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:14px;">📸 قبل/بعد سارة</div>
-      <div class="story-body"><h4>سارة، 24 سنة</h4><p>بناء عضلي ملحوظ وزيادة قوة بنسبة 40% خلال 6 أشهر.</p><div class="stars">★★★★★</div></div>
-    </div>
-
-    <!-- TODO: قصة النجاح #3 - محمد -->
-    <div class="story-card reveal">
-      <div style="height:300px;background:linear-gradient(135deg,#1c1812,#0c0a08);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:14px;">📸 قبل/بعد محمد</div>
-      <div class="story-body"><h4>محمد، 35 سنة</h4><p>تحول كامل في نمط الحياة وخسارة 20 كجم بثبات وصحة.</p><div class="stars">★★★★★</div></div>
-    </div>
-  </div>
-  <div class="testimonial-track">
-    <div class="t-card reveal"><p>الكابتن عبدالله غيّر نظرتي بالكامل للتمرين والتغذية. متابعة حقيقية ونتائج واضحة من أول شهر.</p><div class="t-name">يوسف العبيدي</div><div class="t-role">متدرب — برنامج بناء العضلات</div></div>
-    <div class="t-card reveal"><p>أفضل تجربة تدريب شخصي خضت بها. الخطط منظمة جداً والدعم مستمر طوال الوقت.</p><div class="t-name">نور حسين</div><div class="t-role">متدربة — برنامج التخسيس</div></div>
-    <div class="t-card reveal"><p>احترافية عالية والتزام كامل من الكابتن بمتابعة كل تفصيلة بالبرنامج.</p><div class="t-name">علي كريم</div><div class="t-role">متدرب — اللياقة العامة</div></div>
-  </div>
-</div></section>
 
 <section id="contact"><div class="container">
   <div class="section-head reveal"><span class="eyebrow">تواصل معنا</span><h2>ابدأ <span class="gold-grad">رحلتك اليوم</span></h2><p>راسلنا عبر النموذج أو تواصل مباشرة على واتساب لبدء برنامجك الخاص.</p></div>
